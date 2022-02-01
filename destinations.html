@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="/resources/css/style.css"> -->
+  <title>Destination | JesTravel</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Helvetica, sans-serif;
+      font-size: .8rem;
+      color: black;
+      text-align: justify;
+      line-height: 1.2rem;
+    }
+
+    /* -----------typography------------ */
+
+    h2 {
+      font-size: 1.8rem;
+      color: #d69b05;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      text-align: left;
+    }
+
+    span,
+    .green {
+      color: #308138;
+    }
+
+    .white {
+      color: #fff;
+    }
+
+    a {
+      padding-right: .5em;
+    }
+
+    /* ---------------layout------------ */
+
+    .container {
+      width: 80vw;
+      margin: 0 auto;
+      padding: 2em;
+    }
+
+    .empty {
+      display: block;
+    }
+
+
+    /* Layout - NAV */
+
+
+    header {
+      width: 100%;
+      background-image: linear-gradient(rgba(17, 34, 105, 0.7), rgba(17, 34, 105, 0.7));
+      background-position: center;
+      background-size: cover;
+      position: relative;
+    }
+
+    nav {
+      display: flex;
+      padding: 2% 6%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav img {
+      width: 70px;
+      height: 70px;
+    }
+
+    .nav-links {
+      flex: 1;
+      text-align: right;
+    }
+
+    .nav-links ul li {
+      list-style: none;
+      display: inline-block;
+      padding: 8px 12px;
+      position: relative;
+    }
+
+    .nav-links ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .nav-links ul li::after {
+      content: '';
+      width: 0%;
+      height: 2px;
+      background: #d69b05;
+      display: block;
+      margin: auto;
+      transition: 0.5s;
+    }
+
+    .nav-links ul li:hover::after {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+      .icon {
+        display: none;
+      }
+
+      .nav-links {
+        text-align: center;
+
+      flex: auto;
+      flex-wrap: wrap;
+    }
+
+    .foot-nav a{
+      display: flex;
+      flex: auto;
+      flex-wrap: wrap;
+
+    }
+
+    }
+
+    /* Layout - Activities & Attractions | Featured tours */
+
+    .covGuide {
+      display: flex;
+      gap: 25%;
+      font-size: .8rem;
+      padding: .75em;
+    }
+
+    .announcement {
+      background-color: lightgrey;
+      padding: 0 !important;
+    }
+
+    .explore {
+      background-image: url(./resources/images/3915228.jpg);
+      object-fit: cover;
+      object-position: top;
+      color: black;
+    }
+
+    .viewMore {
+      margin-bottom: 1em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .tourPackage {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .viewMoreBtn {
+      list-style: none;
+      text-decoration: none;
+      color: #fff;
+      background-color: #308138;
+      padding: .5em 1.2em;
+      border-radius: 1.5em;
+      font-size: 1rem;
+    }
+
+    .activitiesCard,
+    .feauturedToursCard {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      justify-content: space-between;
+      width: 23%;
+      height: 400px;
+      box-shadow: 0px 3px .75em 2px lightgrey;
+      border-radius: 1.5em;
+      overflow: hidden;
+    }
+
+    .cardImg img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .cardBody {
+      padding: 1.5em;
+      overflow: hidden;
+    }
+
+    .cardFoot {
+      border-top: #308138 1px solid;
+      padding-bottom: 0 !important;
+      padding: .75em 1em 1em 1em;
+    }
+
+    .learnMore {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    .learnMore a {
+      text-decoration: none;
+      color: #308138;
+    }
+
+    .imgPositionCenter {
+      object-position: center !important;
+    }
+
+    .imgPosition {
+      object-position: bottom !important;
+    }
+
+    .card p,
+    .card h3,
+    .card span,
+    .empty,
+    .learnMore a {
+      padding-bottom: 1em;
+    }
+
+    /* Layout - Travel Essentials  */
+
+    .travelEssentialsCard {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .essentialsCard {
+      background-color: #fff;
+      width: 23%;
+      height: 265px;
+      box-shadow: 0px 3px .75em 2px lightgrey;
+      border-radius: 1.5em;
+      overflow: hidden;
+    }
+
+    .essentialsCardhead img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      object-position: top;
+      margin-bottom: 2.5em;
+    }
+
+    .essentialsCardbody {
+      padding: 0 1em;
+    }
+
+    .essentialsCardfoot {
+      border-top: #308138 1px solid;
+      margin-top: 1em;
+      padding: 1em;
+
+    }
+
+
+    /* footer CSS code */
+
+    .py-3 {
+      background-color: lightcyan;
+      padding: 2em;
+    }
+
+    .mb-3 {
+      display: flex;
+      list-style: none;
+      gap: 2em;
+    }
+
+    .mb-3 a {
+      text-decoration: none;
+      color: #0d6efd;
+
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .border-bottom {
+      border-bottom: solid 1px grey;
+      padding-bottom: 1em;
+
+
+    }
+
+    .text-muted {
+      padding-top: 1em;
+    }
+
+    #home:hover,
+    #about:hover,
+    #acc:hover,
+    #contact:hover,
+    #dest:hover {
+      color: grey;
+    }
+
+    /* MEDIA QUERY */
+
+    @media only screen and (max-width: 600px) {
+
+      .covGuide {
+        flex-direction: column;
+      }
+
+      .viewMore {
+        flex-direction: column;
+        flex-shrink: 0;
+
+      }
+
+      .viewMoreBtn {
+        margin-top: 1em;
+        width: max-content;
+      }
+
+      .activitiesCard,
+      .travelEssentialsCard,
+      .feauturedToursCard {
+        flex-direction: column;
+        align-items: center;
+
+      }
+
+      .card,
+      .essentialsCard {
+        align-self: center;
+        width: 100%;
+        margin-top: 1em;
+        height: fit-content;
+      }
+
+      .essentialsCard .learnMore a {
+        padding-bottom: 0;
+      }
+
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- header - logo + navbar -->
+
+
+  <header>
+
+    <nav>
+      <a class="icon" href="index.html"><img src="./resources/images/logo_2.jpg" alt="Image not found"></a>
+      <div class="nav-links">
+        <ul>
+          <li><a href="./index.html">HOME</a></li>
+          <li><a href="./About_US.html">ABOUT US</a></li>
+          <li><a href="./destinations.html">DESTINATION</a></li>
+          <li><a href="./accomodation.html">ACCOMMODATION</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="announcement">
+      <div class="container covGuide">
+        <h3>
+          Travel Announcement
+        </h3>
+        <p>
+          <a class="green" href="#">COVID-19 Travel Guidelines and Requirements</a>
+        </p>
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- content -->
+
+
+  <main>
+
+    <!-- open main -->
+
+    <!-- Explore destinations -->
+
+    <section class="container explore">
+    </section>
+
+
+    <!-- Activities & Attractions -->
+
+
+    <section class="container activities">
+      <div class="viewMore">
+        <h2>Activities & Attractions</h2>
+        <a href="" class="viewMoreBtn">View all</a>
+      </div>
+
+      <div class="activitiesCard">
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img src="./resources/images/fort.jpg" alt="fort">
+          </div>
+
+          <div class="cardBody">
+            <p class="white">white out </p>
+
+            <h3>Historical Fort</h3>
+            <p>The birthplace of first India state, historical crossroads of centuries, Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Et, ullam.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img src="./resources/images/watrefall.jpg" alt="mountain cliff">
+          </div>
+
+          <div class="cardBody">
+            <p class="white"> white out </p>
+            <h3>Edge of the World</h3>
+            <p>Experience breathtaking cliff-top views: this spectacular spot offers uninterrupted views from the edge
+              of a sheer precipice.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img class="imgPosition" src="./resources/images/cruise.jpg" alt="cruise liners">
+          </div>
+
+          <div class="cardBody">
+            <p class="green">Serene beauty</p>
+            <h3>Seas the day</h3>
+            <p>From arts and culture to a lively beach promenade: explore everything that Jeddah has to offer in one
+              day.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img src="./resources/images/estate.jpg" alt="coffee plantation">
+          </div>
+
+          <div class="cardBody">
+            <p class="green">Peaceful venture</p>
+            <h3>Nature does not hurry</h3>
+            <p>A tour to the lush green trails of coffee plantations, you can learn about the robusta & arabica
+              beans
+              that are grown in the region.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- Featured experiences & tours -->
+
+
+    <section class="container feauturedTours">
+      <div class="viewMore">
+        <h2>Featured experiences & tours</h2>
+        <a href="" class="viewMoreBtn">Explore All</a>
+      </div>
+
+      <div class="feauturedToursCard">
+
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img src="./resources/images/camping.jpg" alt="camping">
+          </div>
+
+          <div class="cardBody">
+            <div class="tourPackage">
+              <span>4 days</span>
+              <span>Ahsa</span>
+            </div>
+            <h3>Four days in Ahsa</h3>
+            <p>Visit Ahsa to find natural springs, verdant farmland and some of the region’s finest dates, interspersed
+              by a string of stunning historical sites.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img class="imgPositionCenter" src="./resources/images/himalayas.jpg" alt="mountain">
+          </div>
+
+          <div class="cardBody">
+            <div class="tourPackage">
+              <span>6 days</span>
+              <span>Himalayas</span>
+            </div>
+            <h3>Six days in Himalayas</h3>
+            <p>Hailed as the ‘Abode of Snow’, the mighty Himalayas in India present a sight to behold. Planning an
+              enthralling Himalaya trip.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img class="imgPosition" src="./resources/images/boating.jpg" alt="boating">
+          </div>
+
+          <div class="cardBody">
+            <div class="tourPackage">
+              <span>Half a day</span>
+              <span>Geithoorn</span>
+            </div>
+            <h3>Half-day in Geithoorn</h3>
+            <p>The sight of the fishes flocking around you to grab a bite or two is intriguing as well as tad bit scary
+              too. During winters, bird-watchers can engage.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="cardImg">
+            <img src="./resources/images/parachute.jpg" alt="parachute">
+          </div>
+
+          <div class="cardBody">
+            <div class="tourPackage">
+              <span>1 day</span>
+              <span>Interlaken</span>
+            </div>
+            <h3>One day in Interlaken</h3>
+            <p>Magnificent, heavenly light filters through the wispy clouds, signifying a new day. The thin clouds
+              slowly drift apart, presenting a beautiful sky.</p>
+          </div>
+
+          <div class="cardFoot">
+
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Travel essentials -->
+
+
+    <section class="container travelEssentials">
+      <div class="viewMore">
+        <h2>Travel essentials</h2>
+        <a href="" class="viewMoreBtn">View all</a>
+      </div>
+
+      <div class="travelEssentialsCard">
+
+        <div class="essentialsCard">
+          <div class="essentialsCardhead">
+            <img src="./resources/images/aboutIndia.jpg" alt="birds flying">
+          </div>
+          <div class="essentialsCardbody">
+            <h3>About Us</h3>
+          </div>
+          <div class="essentialsCardfoot">
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="essentialsCard">
+          <div class="essentialsCardhead">
+            <img src="./resources/images/safetyTravelTips.jpg" alt="Safety Tips">
+          </div>
+          <div class="essentialsCardbody">
+            <h3>Safety travel tips</h3>
+          </div>
+          <div class="essentialsCardfoot">
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="essentialsCard">
+          <div class="essentialsCardhead">
+            <img src="./resources/images/contacts.jpg" alt="contact">
+          </div>
+          <div class="essentialsCardbody">
+            <h3>Useful contacts</h3>
+          </div>
+          <div class="essentialsCardfoot">
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="essentialsCard">
+          <div class="essentialsCardhead">
+            <img src="./resources/images/transportation.jpg" alt="transport">
+          </div>
+          <div class="essentialsCardbody">
+            <h3>Transportation</h3>
+          </div>
+          <div class="essentialsCardfoot">
+            <div class="learnMore">
+              <a href=""><span>Learn more</span></a>
+              <a href=""><span>></span></a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- closing main -->
+  <!-- footer -->
+
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3 foot-nav">
+      <li class="nav-item"><a href="./index.html" class="nav-link" id="home">Home</a></li>
+      <li class="nav-item"><a href="./About_US.html" class="nav-link" id="about">About Us</a></li>
+      <li class="nav-item"><a href="./destinations.html" class="nav-link" id="dest">Destination</a></li>
+      <li class="nav-item"><a href="./accomodation.html" class="nav-link" id="acc">Accomodation</a></li>
+      <li class="nav-item"><a href="./contact.html" class="nav-link" id="contact">Contact</a></li>
+    </ul>
+    <p class="text-center text-muted">JesTravel © 2021 Company, Inc</p>
+  </footer>
+
+</body>
+
+</html>

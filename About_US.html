@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JesTravel | About Us</title>
+    <link rel="stylesheet" href="./resources/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather:ital@0;1&family=Poppins:wght@100;200;300;400;600;700&family=Work+Sans:wght@400;500;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="./resources/images/logo_2.jpg" alt="Image not found"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./About_US.html">ABOUT US</a></li>
+                    <li><a href="./destinations.html">DESTINATION</a></li>
+                    <li><a href="./accomodation.html">ACCOMMODATION</a></li>
+                    <li><a href="./contact.html">CONTACT</a></li>
+
+
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1>About Us</h1>
+    </section>
+
+    <section class="about-us">
+        <div class="row">
+            <div class="about-col">
+                <h1>World's Biggest Online Travel Company</h1>
+                <p>Travel is the main thing you purchase that makes you more extravagant”. We, at ‘Jest Travels’, swear
+                    by this and put stock in satisfying travel dreams that make you perpetually rich constantly. We
+                    have been moving excellent encounters for a considerable length of time through our cutting-edge
+                    planned occasion bundles and other fundamental travel administrations. We rouse our clients to
+                    carry on with a rich life, brimming with extraordinary travel encounters.We understand that
+                    security and comfort are basic to any successful travel journey. A great deal of trust on our part
+                    is invested to make your travel experience perfect and comfortable.
+                </p>
+                <a href="" class="hero-btn red-btn">EXPLORE NOW</a>
+            </div>
+            <div class="about-col">
+                <img src="./resources/images/travel_with_us.jpg" alt="Image not found">
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="./index.html" class="nav-link" id="home">Home</a></li>
+            <li class="nav-item"><a href="./About_US.html" class="nav-link" id="about">About Us</a></li>
+            <li class="nav-item"><a href="./destinations.html" class="nav-link" id="dest">Destination</a></li>
+            <li class="nav-item"><a href="./accomodation.html" class="nav-link" id="acc">Accomodation</a></li>
+            <li class="nav-item"><a href="./contact.html" class="nav-link" id="contact">Contact</a></li>
+        </ul>
+        <div class="social-icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+
+        </div>
+        <p class="text-center text-muted">JesTravel © 2021 Company, Inc</p>
+    </footer>
+
+
+    <script>
+
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
